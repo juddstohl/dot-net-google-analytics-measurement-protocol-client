@@ -20,7 +20,7 @@ namespace MeasurementProtocolClient
         public enum HitTypes
         {
             pageview,
-            appview,
+            screenview,
             @event,
             transaction,
             item,
@@ -53,8 +53,17 @@ namespace MeasurementProtocolClient
         [Parameter("aip")]
         public bool? AnonymizeIP { get; set; }
 
+        [MaxByteCount(100)]
         [Parameter("an")]
         public string ApplicationName { get; set; }
+
+        [MaxByteCount(150)]
+        [Parameter("aid")]
+        public string ApplicationId { get; set; }
+
+        [MaxByteCount(150)]
+        [Parameter("aiid")]
+        public string ApplicationInstallerId { get; set; }
 
         [Parameter("av")]
         public string ApplicationVersion { get; set; }
@@ -85,7 +94,7 @@ namespace MeasurementProtocolClient
 
         [MaxByteCount(2048)]
         [Parameter("cd")]
-        public string ContentDescription { get; set; }
+        public string ScreenName { get; set; }
 
         [Parameter("cid")]
         public string ClientId { get; set; }
@@ -206,6 +215,9 @@ namespace MeasurementProtocolClient
         /// </summary>
         [Parameter("tid")]
         public string TrackingId { get; set; }
+
+        [Parameter("exd")]
+        public string ExceptionDescription { get; set; }
 
         #endregion
 

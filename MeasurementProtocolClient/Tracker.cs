@@ -66,6 +66,7 @@ namespace MeasurementProtocolClient
             foreach (var pair in Parameters.CustomMetrics)
                 collection.Add("cm" + pair.Key.ToString(), pair.Value.ToString());
 
+
             return collection;
         }
 
@@ -73,10 +74,10 @@ namespace MeasurementProtocolClient
         {
             using (var wc = new WebClient())
             {
-                wc.UploadValues(EndpointUri, GetNameValueCollection());
-            }
+                wc.UploadValues(EndpointUri,GetNameValueCollection());
+            }           
         }
-
+        
         #endregion
     }
 }
